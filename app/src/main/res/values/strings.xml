@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">BitcoinCalc</string>
+    <string name="btc_kurs">BTC-Kurs: 0€</string>
+    <string name="gesamtwert_ihrer_btc">Gesamtwert Ihrer BTC</string>
+    <string name="amp_amp_amp">0€</string>
+    <string name="anzahl_btc">Anzahl BTC</string>
+    <string-array name="currency_array">
+        <item>EUR (Euro)</item>
+        <item>USD (Dollar)</item>
+        <item>GBP (Pfund)</item>
+    </string-array>
+</resources>
