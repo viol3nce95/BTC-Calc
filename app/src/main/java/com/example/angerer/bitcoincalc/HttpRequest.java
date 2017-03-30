@@ -43,11 +43,12 @@ public class HttpRequest {
     // Get JSON response to STRING
     private String getStream(InputStream in) {
 
+        String line = "";
+
         // New Buffered Reader
         BufferedReader reader = new BufferedReader(new InputStreamReader(in));
         StringBuilder sb = new StringBuilder();
 
-        String line;
         try {
             // Read response until last line
             while ((line = reader.readLine()) != null) {
