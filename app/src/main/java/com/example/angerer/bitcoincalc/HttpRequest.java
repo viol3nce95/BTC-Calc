@@ -24,11 +24,11 @@ public class HttpRequest {
             URL url = new URL(myURL);
 
             // Connect to Webserver
-            HttpURLConnection conn = (HttpURLConnection) url.openConnection();
-            conn.setRequestMethod("GET");
+            HttpURLConnection httpCon = (HttpURLConnection) url.openConnection();
+            httpCon.setRequestMethod("GET");
 
             // String response
-            InputStream in = new BufferedInputStream(conn.getInputStream());
+            InputStream in = new BufferedInputStream(httpCon.getInputStream());
             req_response = getStream(in);
         }
         catch (IOException e) {
@@ -47,12 +47,12 @@ public class HttpRequest {
 
         // New Buffered Reader
         BufferedReader reader = new BufferedReader(new InputStreamReader(in));
-        StringBuilder sb = new StringBuilder();
+        StringBuilder myBuilder = new StringBuilder();
 
         try {
             // Read response until last line
             while ((line = reader.readLine()) != null) {
-                sb.append(line).append('\n');
+                myBuilder.append(line).append('\n');
             }
         } catch (IOException e) {
             e.printStackTrace();
@@ -63,6 +63,6 @@ public class HttpRequest {
                 e.printStackTrace();
             }
         }
-        return sb.toString();
+        return myBuilder.toString();
     }
 }
