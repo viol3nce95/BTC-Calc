@@ -130,6 +130,13 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         TextView gesamt = (TextView) findViewById(R.id.wert_btc);
         double wert = 0.0;
 
+        if(txt.getText().toString().equals(".")){
+            manually_set = true;
+            txt.setText("");
+            Toast.makeText(getApplicationContext(), "Please start with a Number.", Toast.LENGTH_LONG).show();
+            return;
+        }
+
         if(selected.equals("EUR (Euro)")){
 
             // Show current Course of BTC in EUR
@@ -461,9 +468,11 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 
                 }
                 catch (final JSONException e) {
+                    Toast.makeText(getApplicationContext(), "Something went wrong, try again.", Toast.LENGTH_LONG).show();
                     Log.e("ERROR", e.getMessage());
                 }
             } else {
+                Toast.makeText(getApplicationContext(), "Something went wrong, try again.", Toast.LENGTH_LONG).show();
                 Log.e("ERROR", "Couldn't find JSON.");
             }
 
